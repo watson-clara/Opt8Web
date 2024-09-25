@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- HEAD -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- TITLE -->
+    <title>Opt8 Automation</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="animate.css">
+    <link rel="stylesheet" href="animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <!-- JAVASCRIPT  -->
+    <!-- JS PLUGINS LINKS-->
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-migrate-3.4.0.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <!-- JS PLUGINS DOWNLOADS-->
+    <script type="text/javascript" src="jquery.min.js"></script>
+    <script type="text/javascript" src="jquery.smint.js"></script>
+    <script type="text/javascript" src="jquery.sticky.js"></script>
+    <!-- NO JS WARNING-->
+    <noscript>
+        You need to enable JavaScript to view the full site.
+    </noscript>
+</head>
+
+
+
+<body>
+    <!-- Header Section with Nav Bar -->
+    <section if='menu' class="menu">
+        <nav>
+            <div class="logo">
+                <a href="index.html">
+                    <img src="white-logo-02.png" alt="Logo">
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#menu">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+        </nav>
+        <script>
+            // Toggle the mobile menu
+            const hamburger = document.querySelector('.hamburger');
+            const navLinks = document.querySelector('.nav-links');
+            const navLinksItems = document.querySelectorAll('.nav-links li');
+
+            // Toggle the mobile menu when the hamburger icon is clicked
+            hamburger.addEventListener('click', () => {
+                if (navLinks.classList.contains('active')) {
+                    // Menu is closing
+                    navLinks.classList.add('closing');
+
+                    // Delay removal of 'active' class to allow animation to complete
+                    setTimeout(() => {
+                        navLinks.classList.remove('active', 'closing');
+                        hamburger.classList.remove('toggle'); // Reset hamburger to default (three lines)
+                    }, 0); // Matches the CSS transition duration
+                } else {
+                    // Menu is opening
+                    navLinks.classList.add('active');
+                    hamburger.classList.add('toggle'); // Change hamburger to 'X'
+                }
+            });
+
+            // Close the mobile menu after a link is clicked
+            navLinksItems.forEach(link => {
+                link.addEventListener('click', () => {
+                    // Menu is closing
+                    navLinks.classList.add('closing');
+
+                    // Delay the removal of 'active' class to allow the animation to finish
+                    setTimeout(() => {
+                        navLinks.classList.remove('active', 'closing');
+                        hamburger.classList.remove('toggle');  // Reset hamburger icon to default (three lines)
+                    }, 0);  // Matches the CSS transition timing
+                });
+            });
+
+
+
+        </script>
+    </section>
+
+
+    <!-- Hero Section -->
+    <section class="hero">
+       
+        <div class="hero-content">
+            <h1>Streamline Your Business with Innovative Automation</h1>
+            <p>Tailored solutions for inventory management and workflow automation</p>
+            <a href="#services" class="cta-button">Explore Our Services</a>
+        </div>
+        <a href="#about" class="scroll-down" address="true"></a>
+
+    </section>
+
+
+    <!--HELPER SECTION FOR SCROLL DOWN BUTTON SECTION -->
+    <section class="ok"> </section>
+
+    <!-- About Section -->
+    <div id="about" class="section hidden">
+        <h2>About Us</h2>
+        <p>Opt8 Automation is dedicated to helping small businesses streamline their operations through innovative
+            automation solutions. We specialize in inventory management, workflow automation, and custom automation
+            services tailored to your needs.</p>
+    </div>
+
+    <!-- Services Section -->
+    <section id="services" class="section hidden">
+        <h2>Our Services</h2>
+        <div class="services-container">
+            <div class="service">
+                <i class="fas fa-boxes"></i>
+                <h3>Inventory Management Automation</h3>
+                <p>Optimize your inventory with automated stock tracking, restocking alerts, and data-driven forecasting
+                    to ensure you're never over or under-stocked.</p>
+            </div>
+            <div class="service">
+                <i class="fas fa-tasks"></i>
+                <h3>Workflow Automation</h3>
+                <p>Simplify complex business processes with automated workflows, ensuring consistency and efficiency
+                    across all operations, from order processing to employee task management.</p>
+            </div>
+            <div class="service">
+                <i class="fas fa-cogs"></i>
+                <h3>Custom Automation Solutions</h3>
+                <p>Get personalized automation solutions tailored to your business needs, designed to enhance
+                    productivity, reduce errors, and drive growth.</p>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+    <!-- Footer -->
+    <footer>
+        <div class="my-social-icon">
+            <div class="social-links">
+                <a href="https://www.instagram.com/opt8automations/"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.tiktok.com/@opt8automations"><i class="fab fa-tiktok"></i></a>
+            </div>
+        </div>
+        <br>
+        <p>&copy; 2024 Opt8 Automations</p>
+    </footer>
+
+
+    <!--CONNECT JAVASCRIPT FILES TO LOAD -->
+    <script type="text/javascript" src="sticky-menu.js"></script>
+    <script type="text/javascript" src="scroll-down-button.js"></script>
+    <script type="text/javascript" src="menu-scroll.js"></script>
+    <script type="text/javascript" src="animated-text-loop.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.9.1.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,662 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css?family=Raleway:400,400i,700");
+
+/*-------------------------------------------------------------------------------------------- 
+            GLOBALS 
+/*-------------------------------------------------------------------------------------------- */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+    background: #3b0061;
+    /* Dark purple */
+}
+/* Ensure the body does not interfere with sticky positioning */
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+body,
+a {
+    font-family: Raleway, sans-serif;
+    font-size: 16px;
+    color: #ffffff;
+    /* White for text */
+    height: 100%;
+}
+
+/*-------------------------------------------------------------------------------------------- */
+
+
+/*-------------------------------------------------------------------------------------------- 
+            GLOBAL CLASSES
+/*-------------------------------------------------------------------------------------------- */
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.clearfix:before,
+.clearfix:after {
+    content: "";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+/* Initial hidden state */
+.hidden {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+}
+
+/* Animated state */
+.animated {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+}
+
+
+/* Fine-tune Animate.css animations */
+.animate__animated {
+    animation-duration: 1s;
+    animation-fill-mode: both;
+}
+
+
+/*-------------------------------------------------------------------------------------------- */
+
+
+/*-------------------------------------------------------------------------------------------- 
+            HEADER/NAV BAR
+/*-------------------------------------------------------------------------------------------- */
+
+/* Main navigation structure */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background-color: #3b0061;
+    border-bottom: #ffffff solid 2px;
+    position: -webkit-sticky; /* Safari */
+    position: sticky; /* Sticky positioning */
+    top: 0; /* Stick to the top of the page */
+    z-index: 1000; /* Ensure the navbar stays on top of other content */
+    transition: top 0.3s ease; /* Smooth transition when scrolling */
+}
+
+
+/* Add a class for when the navbar is stuck */
+nav.sticky {
+    top: 0; /* Adjust the amount of space between the top of the page and the navbar */
+}
+
+
+
+/* Logo section */
+.logo img {
+    width: 70px;
+    -webkit-filter: drop-shadow(1px 1px 1px #ff66a9);
+    filter: drop-shadow(1px 1px 1px #ff66a9);
+}
+
+.logo img:hover {
+    -webkit-filter: drop-shadow(2px 2px 2px #ff66a9);
+    filter: drop-shadow(2px 2px 2px #ff66a9);
+}
+
+/* Links section */
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links li {
+    margin-left: 20px;
+    position: relative;
+}
+
+/* Hover effects */
+.nav-links li a {
+    text-decoration: none;
+    font-size: 18px;
+    color: #ffffff;
+    /* White */
+    text-transform: uppercase;
+    position: relative;
+    text-shadow: 1px 1px 1px #ff66a9;
+}
+
+.nav-links li a:hover {
+    width: 100%; 
+}
+
+.nav-links li a:hover::before {
+    width: 100%;
+    box-shadow: 2px 2px 2px  #ff66a9;
+}
+
+.nav-links li a::before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: #ffffff;
+    box-shadow: 2px 2px 2px  #ff66a9;
+    /* White hover underline */
+    transition: 0.3s ease-out;
+}
+
+/* Hamburger Menu section */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+}
+
+.bar {
+    height: 3px;
+    width: 100%;
+    background-color: #ffffff;
+    /* White for bars */
+    margin: 4px 0;
+    transition: 0.4s;
+}
+
+/* Animation for hamburger */
+.hamburger.toggle .bar:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 5px);
+}
+
+.hamburger.toggle .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.toggle .bar:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -5px);
+}
+
+/* Mobile menu */
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+        z-index: 5;
+    }
+
+    /* Default hidden state (menu off-screen) */
+    .nav-links {
+        position: absolute;
+        right: 0;
+        height: 100vh;
+        top: 0;
+        background-color: #3b0061;
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+        transform: translateX(100%);
+        /* Hidden */
+        transition: transform 0.3s ease-out;
+        /* Animation when toggling */
+        opacity: 0;
+        z-index: 3;
+    }
+
+    /* Menu visible (active state) */
+    .nav-links.active {
+        transform: translateX(0);
+        /* Slide into view */
+        opacity: 1;
+        transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+        /* Add opacity transition */
+    }
+
+    /* Add animation when hiding */
+    .nav-links.closing {
+        transform: translateX(100%);
+        /* Slide out of view */
+        opacity: 0;
+        transition: transform 0.3s ease-in, opacity 0.3s ease-in;
+    }
+
+
+    .nav-links li {
+        margin: 20px 0;
+    }
+}
+
+/*-------------------------------------------------------------------------------------------- */
+
+/*--------------------------------------------------------------------------------------------
+            HERO SECTION 
+/*--------------------------------------------------------------------------------------------*/
+/* Hero section background */
+.hero {
+    background: url('hero.jpg') center/cover no-repeat; 
+    height: 100%;
+    width: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    position: relative;
+    /* Added this */
+    z-index: 0;
+    /* Hero is in the background */
+}
+
+
+.hero-content h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 1px #ff66a9;
+}
+
+.hero-content p {
+    font-size: 20px;
+    margin-bottom: 30px;
+    text-shadow: 1px 1px 1px #8b008b;
+}
+
+.cta-button {
+    background-color: #ff3380;
+    /* Bright pink */
+    color: white;
+    box-shadow: 2px 2px 2px  #8b008b;
+    padding: 15px 30px;
+    font-size: 18px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    
+}
+
+.cta-button:hover {
+    background-color: #8b008b;
+    /* Deep purple */
+}
+
+/*--------------------------------------------------------------------------------------------*/
+
+
+/* SCROLL SECTION */
+section.scroll {
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+
+section.ok {
+    background-color: #555;
+}
+
+section.scroll p {
+    top: 40px;
+    position: relative;
+    font-size: .75em;
+    display: block;
+    color: white;
+    text-align: center;
+    z-index: 3999;
+}
+
+.scroll-down {
+    opacity: 1;
+    transition: all .5s ease-in 3s;
+}
+
+/* Scroll-down button stays on top */
+.scroll-down {
+    position: absolute;
+    /* Ensure it's positioned relative to the hero section */
+    bottom: 30px;
+    left: 50%;
+    margin-left: -16px;
+    display: block;
+    width: 32px;
+    height: 32px;
+    border: 2px solid white;
+    background-size: 14px auto;
+    border-radius: 50%;
+    z-index: 10;
+    /* Ensure it is on top of the hero section */
+    animation: bounce 2s infinite 2s;
+    transition: all .2s ease-in;
+    transform: scale(1);
+}
+
+.scroll-down:before {
+    position: relative;
+    top: calc(50% - 8px);
+    left: calc(50% - 6px);
+    transform: rotate(-45deg);
+    display: block;
+    width: 12px;
+    height: 12px;
+    content: "";
+    border: 2px solid white;
+    border-width: 0px 0 2px 2px;
+}
+
+@keyframes bounce {
+
+    0%,
+    100%,
+    20%,
+    50%,
+    80% {
+        transform: translateY(0);
+    }
+
+    40% {
+        transform: translateY(-10px);
+    }
+
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+@media (min-width: 400px) {}
+
+/*--------------------------------------------------------------------------------------------
+            ABOUT SECTION 
+/*--------------------------------------------------------------------------------------------*/
+
+#about {
+    background-color: #ffffff;
+    padding: 60px 20px;
+    text-align: center;
+    color: #333;
+}
+
+#about h2 {
+    font-size: 36px;
+    color: #8b008b;
+    /* Deep purple */
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 2px #ff66a9;
+
+}
+
+#about p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #666;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+#about::after {
+    content: '';
+    display: block;
+    width: 100px;
+    height: 3px;
+    background-color: #ff3380;
+    /* Bright pink */
+    margin: 20px auto 0 auto;
+}
+
+/* Responsive for mobile devices */
+@media (max-width: 768px) {
+    #about {
+        padding: 40px 10px;
+    }
+
+    #about h2 {
+        font-size: 28px;
+    }
+
+    #about p {
+        font-size: 16px;
+    }
+}
+
+/*--------------------------------------------------------------------------------------------
+            SERVICES SECTION 
+/*--------------------------------------------------------------------------------------------*/
+#services {
+    background-color: #fff;
+    padding: 50px 0;
+    text-align: center;
+}
+
+#services h2 {
+    font-size: 36px;
+    margin-bottom: 30px;
+    color: #8b008b;
+    text-shadow: 1px 1px 2px #ff66a9;
+
+    /* Deep purple */
+}
+
+.services-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.service {
+    background-color: white;
+    padding: 20px;
+    width: 30%;
+    margin: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.service:hover {
+    transform: translateY(-10px);
+}
+
+.service i {
+    font-size: 40px;
+    color: #ff3380;
+    /* Bright pink */
+    margin-bottom: 15px;
+
+
+    
+}
+
+.service h3 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: #8b008b;
+    /* Deep purple */
+}
+
+.service p {
+    font-size: 16px;
+    color: #666;
+}
+
+/* Responsive adjustments for mobile */
+@media (max-width: 768px) {
+    .services-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .service {
+        width: 80%;
+    }
+}
+
+/*--------------------------------------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------------------------------------
+            CONTACT SECTION 
+/*--------------------------------------------------------------------------------------------*/
+#contact {
+    background-color: #f9f9f9;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+#contact h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #8b008b;
+    /* Deep purple */
+}
+
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.contact-form label {
+    font-size: 16px;
+    color: #333;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.contact-form input[type="submit"] {
+    background-color: #ff3380;
+    /* Bright pink */
+    color: white;
+    border: none;
+    padding: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.contact-form input[type="submit"]:hover {
+    background-color: #8b008b;
+    /* Deep purple */
+}
+
+/*-------------------------------------------------------------------------------------------- */
+
+
+
+.altlogo img {
+    width: 100%;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    display: flex;
+    position: relative;
+}
+
+/*--------------------------------------------------------------------------------------------
+            FOOTER 
+/*--------------------------------------------------------------------------------------------*/
+footer {
+    width: 100vw;
+    padding: 20px;
+    background-color: #3b0061;
+    /* Dark purple */
+    color: #ffffff;
+    /* White */
+    text-align: center;
+}
+
+.my-social-icon {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.social-links {
+    display: flex;
+}
+
+.social-links a {
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    text-decoration: none;
+    color: #ffffff;
+    /* White */
+    box-shadow: 0 0 20px 10px rgba(0, 0, 0, 0.05);
+    margin: 0 10px;
+    border-radius: 50%;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.5s;
+}
+
+.social-links a .fab {
+    font-size: 15px;
+    line-height: 30px;
+    position: relative;
+    z-index: 10;
+    transition: color 0.5s;
+}
+
+.social-links a::after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    top: -90px;
+    left: 0;
+    background: #000;
+    background: linear-gradient(-45deg, #ff3380, #ffd1e6);
+    /* Gradient pink */
+    position: absolute;
+    transition: 0.5s;
+}
+
+.social-links a:hover::after {
+    top: 0;
+}
+
+.social-links a:hover .fab {
+    color: #ffffff;
+    /* White */
+}
+
+.social-links a:hover {
+    transform: translateY(-10px);
+}
