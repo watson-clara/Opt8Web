@@ -9,7 +9,7 @@
     <!-- TITLE -->
     <title>Opt8 Automation</title>
     <!-- CSS -->
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     <!-- JAVASCRIPT  -->
@@ -20,6 +20,8 @@
         You need to enable JavaScript to view the full site.
     </noscript>
 </head>
+
+
 
 <body>
     <!-- Header Section with Nav Bar -->
@@ -53,28 +55,36 @@
 
         </script>
     </section>
+    <style>
+
+    </style>
 
     <!-- Contact Form Section -->
     <div id="contact" class="section hidden">
         <h2>Contact Us</h2>
         <div class="contact-form">
-            <form action="your-form-handler.php" method="POST">
-                <label for="fname">First Name</label>
-                <input type="text" id="fname" name="firstname" placeholder="First Name" required>
+            <form name="gform" id="gform" enctype="text/plain" action="https://docs.google.com/forms/d/e/1FAIpQLSf8Zury4XfZGBxJnJ2CIkGrVlqSiuEPWEKHDn8PzlX10iDC_g/formResponse?" target="hidden_iframe" onsubmit="submitted=true;">
+                <label for="entry.621867054">First Name</label>
+                <input type="text" id="entry.621867054" name="entry.621867054" placeholder="First Name" required>
 
-                <label for="lname">Last Name</label>
-                <input type="text" id="lname" name="lastname" placeholder="Last Name" required>
+                <label for="entry.2097801887">Last Name</label>
+                <input type="text" id="entry.2097801887" name="entry.2097801887" placeholder="Last Name" required>
 
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" placeholder="Email" required>
+                <label for="entry.143011235">Email</label>
+                <input type="email" id="entry.143011235" name="entry.143011235" placeholder="Email" required>
 
-                <label for="message">Message</label>
-                <textarea id="message" name="message" placeholder="Write your message here" required></textarea>
+                <label for="entry.1294773857">Message</label>
+                <textarea id="entry.1294773857" name="entry.1294773857" placeholder="Write your message here"
+                    required></textarea>
 
                 <input type="submit" value="Submit">
             </form>
+            <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) {}"></iframe>
+
         </div>
     </div>
+
+
 
     <!-- Footer -->
     <footer>
@@ -89,6 +99,15 @@
         <br>
         <p>&copy; 2024 Opt8 Automations</p>
     </footer>
+    <script src="assets/js/jquery.min.js"></script>
+    <script type="text/javascript">var submitted = false;</script>
+    <script type="text/javascript">
+        $('#gform').on('submit', function (e) {
+            $('#gform *').fadeOut(2000);
+            $('#gform').prepend('Your submission has been processed...');
+        });
+    </script>
+
 
     <!--CONNECT JAVASCRIPT FILES TO LOAD -->
     <script type="text/javascript" src="script.js"></script>
