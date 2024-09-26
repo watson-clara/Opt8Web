@@ -63,7 +63,9 @@
     <div id="contact" class="section hidden">
         <h2>Contact Us</h2>
         <div class="contact-form">
-            <form name="gform" id="gform" enctype="text/plain" action="https://docs.google.com/forms/d/e/1FAIpQLSf8Zury4XfZGBxJnJ2CIkGrVlqSiuEPWEKHDn8PzlX10iDC_g/formResponse?" target="hidden_iframe" onsubmit="submitted=true;">
+            <form name="gform" id="gform" enctype="text/plain"
+                action="https://docs.google.com/forms/d/e/1FAIpQLSf8Zury4XfZGBxJnJ2CIkGrVlqSiuEPWEKHDn8PzlX10iDC_g/formResponse?"
+                target="hidden_iframe" onsubmit="submitted=true;">
                 <label for="entry.621867054">First Name</label>
                 <input type="text" id="entry.621867054" name="entry.621867054" placeholder="First Name" required>
 
@@ -79,7 +81,12 @@
 
                 <input type="submit" value="Submit">
             </form>
-            <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) {}"></iframe>
+            <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) {}">
+
+            </iframe>
+            <div id="formMessage" class="" style="display:none; font-size: 15px; text-align: center; color: #3b0061; ">
+                <p>Your submission has been processed...</p>
+            </div>
 
         </div>
     </div>
@@ -102,9 +109,15 @@
     <script src="assets/js/jquery.min.js"></script>
     <script type="text/javascript">var submitted = false;</script>
     <script type="text/javascript">
+        var submitted = false;
+
         $('#gform').on('submit', function (e) {
-            $('#gform *').fadeOut(2000);
-            $('#gform').prepend('Your submission has been processed...');
+            e.preventDefault(); // Prevent the form from submitting immediately
+            $('#gform *').fadeOut(800, function () {
+                setTimeout(function () {
+                    $('#formMessage').fadeIn(1000); // Show the success message after a 2-second pause
+                }, 700); // 2000ms = 2-second delay
+            });
         });
     </script>
 
