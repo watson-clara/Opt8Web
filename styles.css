@@ -27,6 +27,7 @@ body {
     background: #3b0061;
     /* Dark purple */
 }
+
 /* Ensure the body does not interfere with sticky positioning */
 body {
     margin: 0;
@@ -103,18 +104,24 @@ nav {
     padding: 15px 30px;
     background-color: #3b0061;
     border-bottom: #ffffff solid 2px;
-    position: -webkit-sticky; /* Safari */
-    position: sticky; /* Sticky positioning */
-    top: 0; /* Stick to the top of the page */
-    z-index: 1000; /* Ensure the navbar stays on top of other content */
-    transition: top 0.3s ease; /* Smooth transition when scrolling */
-    
+    position: -webkit-sticky;
+    /* Safari */
+    position: sticky;
+    /* Sticky positioning */
+    top: 0;
+    /* Stick to the top of the page */
+    z-index: 1000;
+    /* Ensure the navbar stays on top of other content */
+    transition: top 0.3s ease;
+    /* Smooth transition when scrolling */
+
 }
 
 
 /* Add a class for when the navbar is stuck */
 nav.sticky {
-    top: 0; /* Adjust the amount of space between the top of the page and the navbar */
+    top: 0;
+    /* Adjust the amount of space between the top of the page and the navbar */
 }
 
 
@@ -137,7 +144,7 @@ nav.sticky {
 .nav-links {
     display: flex;
     list-style: none;
-    
+
 }
 
 .nav-links li {
@@ -159,12 +166,12 @@ nav.sticky {
 }
 
 .nav-links li a:hover {
-    width: 100%; 
+    width: 100%;
 }
 
 .nav-links li a:hover::before {
     width: 100%;
-    box-shadow: 2px 2px 2px  #ff66a9;
+    box-shadow: 2px 2px 2px #ff66a9;
 }
 
 .nav-links li a::before {
@@ -175,7 +182,7 @@ nav.sticky {
     bottom: -5px;
     left: 0;
     background-color: #ffffff;
-    box-shadow: 2px 2px 2px  #ff66a9;
+    box-shadow: 2px 2px 2px #ff66a9;
     /* White hover underline */
     transition: 0.3s ease-out;
 }
@@ -267,7 +274,7 @@ nav.sticky {
 /*--------------------------------------------------------------------------------------------*/
 /* Hero section background */
 .hero {
-    background: url("hero.jpg") center/cover no-repeat;
+
     height: 100%;
     width: auto;
     display: flex;
@@ -279,7 +286,7 @@ nav.sticky {
     /* Added this */
     z-index: 0;
     /* Hero is in the background */
-   
+
 }
 
 
@@ -303,14 +310,14 @@ nav.sticky {
     background-color: #ff3380;
     /* Bright pink */
     color: white;
-    box-shadow: 2px 2px 2px  #8b008b;
+    box-shadow: 2px 2px 2px #8b008b;
     padding: 15px 30px;
     font-size: 18px;
     text-decoration: none;
     border-radius: 5px;
     transition: background-color 0.3s ease;
 
-    
+
 }
 
 .cta-button:hover {
@@ -479,7 +486,7 @@ section.scroll p {
     flex-wrap: wrap;
     max-width: 1200px;
     margin: 0 auto;
-   
+
 }
 
 .service {
@@ -493,7 +500,7 @@ section.scroll p {
 }
 
 .service:hover {
-    
+
     transform: scale(1.1);
 }
 
@@ -505,7 +512,7 @@ section.scroll p {
     margin-bottom: 15px;
 
 
-    
+
 }
 
 .service h3 {
@@ -612,7 +619,7 @@ footer {
     color: #ffffff;
     /* White */
     text-align: center;
-    
+
 }
 
 .my-social-icon {
@@ -622,7 +629,7 @@ footer {
     align-items: center;
     flex-direction: column;
     justify-content: center;
-    
+
 }
 
 .social-links {
@@ -630,6 +637,7 @@ footer {
     animation: bounceInUp;
     animation-duration: 1.5s;
 }
+
 footer p {
     animation: zoomIn;
     animation-duration: 1.5s;
@@ -648,8 +656,8 @@ footer p {
     position: relative;
     overflow: hidden;
     transition: transform 0.5s;
-    
-    
+
+
 }
 
 .social-links a .fab {
@@ -659,6 +667,7 @@ footer p {
     z-index: 10;
     transition: color 0.5s;
 }
+
 .social-links a .fas {
     font-size: 15px;
     line-height: 30px;
@@ -691,4 +700,8 @@ footer p {
 
 .social-links a:hover {
     transform: translateY(-10px);
+}
+
+.hero {
+    background: url("hero.jpg") center/cover no-repeat;
 }
