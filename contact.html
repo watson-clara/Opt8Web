@@ -100,27 +100,31 @@
         <br>
         <p>&copy; 2024 Opt8 Automations</p>
     </footer>
-    <script>
-        document.getElementById('gform').addEventListener('submit', function(e) {
+    script type="text/javascript">
+        $('#gform').on('submit', function (e) {
             e.preventDefault(); // Prevent default form submission
-            var form = this;
-            
-            var formData = new FormData(form);
-            var scriptURL = "https://script.google.com/macros/s/AKfycbyEWMAvMtSxx7aKBmm86wGkaPgzG_7Z3ONWh3LIQYPYorTt7_GhdXvOhN9McepBI2YSIQ/exec"; // Use your Google Apps Script URL
-    
-            fetch(scriptURL, {
-                method: 'POST',
-                body: formData,
-            }).then(response => {
-                if (response.ok) {
-                    // Show the success message and reset the form
-                    document.getElementById('formMessage').classList.remove('hidden');
-                    form.reset();
-                } else {
-                    alert("There was an error with your submission.");
+
+            // Fade out the form elements immediately after the form is submitted
+            $('#gform *').fadeOut(2000);
+
+            var formData = new FormData(this);
+            var scriptURL = "https://script.google.com/macros/s/AKfycbyEWMAvMtSxx7aKBmm86wGkaPgzG_7Z3ONWh3LIQYPYorTt7_GhdXvOhN9McepBI2YSIQ/exec";
+
+            // Process form submission via AJAX
+            $.ajax({
+                url: scriptURL,
+                method: "POST",
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: function () {
+                    // Show success message only after the AJAX request is successful
+                    $('#formMessage').fadeIn(2000);
+                },
+                error: function () {
+                    // Handle error, display an error message instead of success
+                    $('#formMessage').removeClass('hide').text('There was an error processing your submission.');
                 }
-            }).catch(error => {
-                alert("There was a problem submitting the form.");
             });
         });
     </script>
