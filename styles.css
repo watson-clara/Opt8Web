@@ -108,6 +108,7 @@ nav {
     top: 0; /* Stick to the top of the page */
     z-index: 1000; /* Ensure the navbar stays on top of other content */
     transition: top 0.3s ease; /* Smooth transition when scrolling */
+    
 }
 
 
@@ -123,6 +124,8 @@ nav.sticky {
     width: 70px;
     -webkit-filter: drop-shadow(1px 1px 1px #ff66a9);
     filter: drop-shadow(1px 1px 1px #ff66a9);
+    animation: slideInLeft;
+    animation-duration: .5s;
 }
 
 .logo img:hover {
@@ -134,11 +137,14 @@ nav.sticky {
 .nav-links {
     display: flex;
     list-style: none;
+    
 }
 
 .nav-links li {
     margin-left: 20px;
     position: relative;
+    animation: backInDown;
+    animation-duration: 1s;
 }
 
 /* Hover effects */
@@ -261,7 +267,7 @@ nav.sticky {
 /*--------------------------------------------------------------------------------------------*/
 /* Hero section background */
 .hero {
-    background: url('hero.jpg') center/cover no-repeat; 
+    background: url("hero.jpg") center/cover no-repeat;
     height: 100%;
     width: auto;
     display: flex;
@@ -273,6 +279,7 @@ nav.sticky {
     /* Added this */
     z-index: 0;
     /* Hero is in the background */
+   
 }
 
 
@@ -280,12 +287,16 @@ nav.sticky {
     font-size: 48px;
     margin-bottom: 20px;
     text-shadow: 1px 1px 1px #ff66a9;
+    animation: slideInLeft;
+    animation-duration: 1s;
 }
 
 .hero-content p {
     font-size: 20px;
     margin-bottom: 30px;
     text-shadow: 1px 1px 1px #8b008b;
+    animation: slideInRight;
+    animation-duration: 1s;
 }
 
 .cta-button {
@@ -298,6 +309,7 @@ nav.sticky {
     text-decoration: none;
     border-radius: 5px;
     transition: background-color 0.3s ease;
+
     
 }
 
@@ -467,6 +479,7 @@ section.scroll p {
     flex-wrap: wrap;
     max-width: 1200px;
     margin: 0 auto;
+   
 }
 
 .service {
@@ -476,12 +489,14 @@ section.scroll p {
     margin: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
-    transition: transform 0.3s ease;
+    transition: transform 1s ease;
 }
 
 .service:hover {
-    transform: translateY(-10px);
+    
+    transform: scale(1.1);
 }
+
 
 .service i {
     font-size: 40px;
@@ -597,6 +612,7 @@ footer {
     color: #ffffff;
     /* White */
     text-align: center;
+    
 }
 
 .my-social-icon {
@@ -606,10 +622,17 @@ footer {
     align-items: center;
     flex-direction: column;
     justify-content: center;
+    
 }
 
 .social-links {
     display: flex;
+    animation: bounceInUp;
+    animation-duration: 1.5s;
+}
+footer p {
+    animation: zoomIn;
+    animation-duration: 1.5s;
 }
 
 .social-links a {
@@ -625,9 +648,18 @@ footer {
     position: relative;
     overflow: hidden;
     transition: transform 0.5s;
+    
+    
 }
 
 .social-links a .fab {
+    font-size: 15px;
+    line-height: 30px;
+    position: relative;
+    z-index: 10;
+    transition: color 0.5s;
+}
+.social-links a .fas {
     font-size: 15px;
     line-height: 30px;
     position: relative;
