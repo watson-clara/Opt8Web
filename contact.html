@@ -59,33 +59,31 @@
 
     </style>
 
-    <!-- Contact Form Section -->
+   <!-- Contact Form Section -->
     <div id="contact" class="section hidden">
         <h2>Contact Us</h2>
         <div class="contact-form">
-            <form name="gform" id="gform">
-                <label for="entry.621867054">First Name</label>
-                <input type="text" id="entry.621867054" name="entry.621867054" placeholder="First Name" required>
+            <form id="gform">
+                <label for="first_name">First Name</label>
+                <input type="text" id="first_name" name="first_name" placeholder="First Name" required>
 
-                <label for="entry.2097801887">Last Name</label>
-                <input type="text" id="entry.2097801887" name="entry.2097801887" placeholder="Last Name" required>
+                <label for="last_name">Last Name</label>
+                <input type="text" id="last_name" name="last_name" placeholder="Last Name" required>
 
-                <label for="entry.143011235">Email</label>
-                <input type="email" id="entry.143011235" name="entry.143011235" placeholder="Email" required>
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Email" required>
 
-                <label for="entry.1294773857">Message</label>
-                <textarea id="entry.1294773857" name="entry.1294773857" placeholder="Write your message here"
-                    required></textarea>
+                <label for="message">Message</label>
+                <textarea id="message" name="message" placeholder="Write your message here" required></textarea>
 
                 <input type="submit" value="Submit">
             </form>
-            
             <div id="formMessage" class="" style="display:none; font-size: 15px; text-align: center; color: #3b0061; ">
                 <p>Your submission has been processed...</p>
             </div>
-
         </div>
     </div>
+
 
 
 
@@ -103,30 +101,29 @@
         <p>&copy; 2024 Opt8 Automations</p>
     </footer>
     <script>
-    // JavaScript to handle form submission
-    document.getElementById('gform').addEventListener('submit', function(e) {
-        e.preventDefault(); // Prevent the default form submission
-
-        // Create a new FormData object
-        var form = new FormData(this);
-
-        // Send the form data using fetch and no-cors mode
-        fetch('https://docs.google.com/forms/d/e/1FAIpQLSf8Zury4XfZGBxJnJ2CIkGrVlqSiuEPWEKHDn8PzlX10iDC_g/formResponse?', {
-            method: 'POST',
-            body: form,
-            mode: 'no-cors' // Avoid CORS issues
-        }).then(() => {
-            // After submission, show the success message
-            document.getElementById('formMessage').classList.remove('hidden');
-        }).catch(error => {
-            console.error('Error:', error); // Handle errors here
+        document.getElementById('gform').addEventListener('submit', function(e) {
+            e.preventDefault(); // Prevent default form submission
+            var form = this;
+            
+            var formData = new FormData(form);
+            var scriptURL = "https://script.google.com/macros/s/AKfycbyEWMAvMtSxx7aKBmm86wGkaPgzG_7Z3ONWh3LIQYPYorTt7_GhdXvOhN9McepBI2YSIQ/exec"; // Use your Google Apps Script URL
+    
+            fetch(scriptURL, {
+                method: 'POST',
+                body: formData,
+            }).then(response => {
+                if (response.ok) {
+                    // Show the success message and reset the form
+                    document.getElementById('formMessage').classList.remove('hidden');
+                    form.reset();
+                } else {
+                    alert("There was an error with your submission.");
+                }
+            }).catch(error => {
+                alert("There was a problem submitting the form.");
+            });
         });
-
-        // Optionally, clear the form fields after submission
-        document.getElementById('gform').reset();
-    });
-</script>
-
+    </script>
 
     <!--CONNECT JAVASCRIPT FILES TO LOAD -->
     <script type="text/javascript" src="script.js"></script>
