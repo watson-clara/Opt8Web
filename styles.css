@@ -57,6 +57,7 @@ a {
     transform: translate(-50%, -50%);
 }
 
+
 .clearfix:before,
 .clearfix:after {
     content: "";
@@ -73,6 +74,7 @@ a {
     visibility: hidden;
     transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
 }
+
 .hide {
     display: none;
 }
@@ -417,9 +419,12 @@ section.scroll p {
 
 #about {
     background-color: #ffffff;
-    padding: 60px 20px;
+    padding: 30px 30px;
     text-align: center;
     color: #333;
+    position: relative;
+    z-index: 1;
+
 }
 
 #about h2 {
@@ -437,17 +442,22 @@ section.scroll p {
     color: #666;
     max-width: 800px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 0px;
 }
 
 #about::after {
     content: '';
     display: block;
     width: 100px;
-    height: 3px;
-    background-color: #ff3380;
-    /* Bright pink */
-    margin: 20px auto 0 auto;
+    height: 10px;
+    padding-bottom: 30px;
+}
+
+#about:hover {
+
+
+    box-shadow: 0 -8px 8px -4px rgba(0, 0, 0, 0.2), 0 8px 8px -4px rgba(0, 0, 0, 0.2);
+
 }
 
 /* Responsive for mobile devices */
@@ -469,84 +479,128 @@ section.scroll p {
             SERVICES SECTION 
 /*--------------------------------------------------------------------------------------------*/
 #services {
-    background-color: #fff;
-    padding: 50px 0;
+    background-color: #ffffff;
+    padding: 30px 30px;
     text-align: center;
+    color: #333;
+    position: relative;
+    z-index: 1;
+    /* Make sure content is above shadow */
+    height: auto;
 }
 
 #services h2 {
     font-size: 36px;
-    margin-bottom: 30px;
     color: #8b008b;
+    /* Deep purple */
+    margin-bottom: 20px;
     text-shadow: 1px 1px 2px #ff66a9;
 
-    /* Deep purple */
 }
 
-.services-container {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    max-width: 1200px;
-    margin: 0 auto;
-
-}
-
-.service {
-    background-color: white;
-    padding: 20px;
-    width: 30%;
-    margin: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    transition: transform 1s ease;
-}
-
-.service:hover {
-
-    transform: scale(1.1);
-}
-
-
-.service i {
-    font-size: 40px;
-    color: #ff3380;
-    /* Bright pink */
-    margin-bottom: 15px;
-
-
-
-}
-
-.service h3 {
-    font-size: 24px;
-    margin-bottom: 15px;
-    color: #8b008b;
-    /* Deep purple */
-}
-
-.service p {
-    font-size: 16px;
+#services p {
+    font-size: 18px;
+    line-height: 1.6;
     color: #666;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 0px;
+    padding-bottom: 20px;
 }
 
-/* Responsive adjustments for mobile */
+#services::after {
+    content: '';
+    display: block;
+    width: 100px;
+    height: 10px;
+    padding-bottom: 30px;
+}
+
+
+
+/* Responsive for mobile devices */
 @media (max-width: 768px) {
-    .services-container {
-        flex-direction: column;
-        align-items: center;
+    #services {
+        padding: 40px 10px;
     }
 
-    .service {
-        width: 80%;
+    #services h2 {
+        font-size: 28px;
+    }
+
+    #services p {
+        font-size: 16px;
     }
 }
 
 /*--------------------------------------------------------------------------------------------*/
 
 
+
 /*--------------------------------------------------------------------------------------------
             CONTACT SECTION 
+/*--------------------------------------------------------------------------------------------*/
+#contract {
+    background-color: #ffffff;
+    padding: 30px 30px;
+    text-align: center;
+    color: #333;
+    position: relative;
+    z-index: 1;
+}
+
+#contract h2 {
+    font-size: 36px;
+    color: #8b008b;
+    /* Deep purple */
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 2px #ff66a9;
+
+}
+
+#contract p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #666;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 0px;
+    padding-bottom: 20px;
+}
+
+#contact::after {
+    content: '';
+    display: block;
+    width: 100px;
+    height: 10px;
+    padding-bottom: 30px;
+}
+
+
+
+/* Responsive for mobile devices */
+@media (max-width: 768px) {
+    #contract {
+        padding: 40px 10px;
+    }
+
+    #contract h2 {
+        font-size: 28px;
+    }
+
+    #contract p {
+        font-size: 16px;
+    }
+}
+
+/*--------------------------------------------------------------------------------------------*/
+/* Shadow applied to the wrapper */
+.section:hover{
+    box-shadow: 0 -8px 16px rgba(0, 0, 0, 0.2), 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/*--------------------------------------------------------------------------------------------
+            CONTACT PAGE 
 /*--------------------------------------------------------------------------------------------*/
 #contact {
     background-color: #f9f9f9;
@@ -558,6 +612,7 @@ section.scroll p {
     font-size: 36px;
     margin-bottom: 20px;
     color: #8b008b;
+    text-shadow: 1px 1px 2px #ff3380;
     /* Deep purple */
 }
 
@@ -707,4 +762,150 @@ footer p {
 
 .hero {
     background: url("hero.jpg") center/cover no-repeat;
+}
+
+/*--------------------------------------------------------------------------------------------
+            SERVICES PAGE 
+/*--------------------------------------------------------------------------------------------*/
+#services-page {
+    background-color: #f9f9f9;
+    /* Light background for the entire section */
+    padding: 0;
+    text-align: center;
+    padding-bottom: 30px;
+    width: 100%;
+}
+
+#services-page h1 {
+    font-size: 36px;
+    margin: 0;
+    /* Remove top and bottom margins */
+    padding: 30px 0;
+    /* Add padding for spacing */
+    /* Slightly darker background for the title */
+    color: #8b008b;
+    text-shadow: 1px 1px 2px #ff3380;
+    /* Deep purple */
+    width: 100%;
+    /* Ensure the title takes the full width */
+    box-sizing: border-box;
+    /* Include padding in the width */
+}
+
+.container.services {
+    display: flex;
+    flex-direction: column;
+    /* Stack items vertically */
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0;
+    background-color: #f9f9f9;
+    /* Match the light background */
+}
+
+.service-item {
+    background-color: white;
+    padding: 20px;
+    width: 100%;
+    /* Full width by default */
+    margin: 10px 0;
+    /* Vertical spacing */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    /* Slightly rounded corners */
+    transition: transform 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    /* Stack icon and content vertically */
+    align-items: center;
+    /* Center icon and content */
+    text-align: center;
+    cursor: pointer;
+}
+
+.service-item:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+
+}
+
+.service-icon i {
+    font-size: 40px;
+    color: #ff3380;
+    /* Bright pink */
+    margin-bottom: 15px;
+    display: block;
+    text-align: center;
+}
+
+.service-content h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: #8b008b;
+    /* Deep purple */
+}
+
+.service-content p {
+    font-size: 16px;
+    color: #666;
+}
+
+/* Responsive adjustments */
+@media (min-width: 768px) {
+    .container.services {
+        flex-direction: row;
+        /* Change to row layout on larger screens */
+        flex-wrap: wrap;
+        /* Allow wrapping */
+        justify-content: space-between;
+        /* Space items evenly */
+    }
+
+    .service-item {
+        width: 48%;
+        /* Approximately half-width for each item */
+        margin: 1%;
+        /* Small margin for spacing between items */
+    }
+}
+
+@media (min-width: 1200px) {
+    .service-item {
+        width: 45%;
+        /* Slightly narrower on very large screens */
+    }
+}
+
+
+/*---------------------------------------------------- */
+/* CTA SECTION */
+/*---------------------------------------------------- */
+.cta {
+    background-color: #8b008b;
+    color: #fff;
+    padding: 60px 0;
+    text-align: center;
+    animation: zoomIn;
+    animation-duration: 1.5s;
+}
+
+.cta h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.cta p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+.cta-button.serviced {
+    color: #3b0061;
+    background-color: #f9f9f9;
+}
+
+.cta-button.serviced:hover {
+    color: #3b0061;
+    background-color: #ff3380;
 }
