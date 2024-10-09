@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- HEAD -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - Opt8 Automation</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <!-- JAVASCRIPT  -->
+    <!-- JS PLUGINS LINKS-->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js" defer></script>
+    <script src="scripts.js" defer></script>
+    <!-- NO JS WARNING-->
+    <noscript>
+        You need to enable JavaScript to view the full site.
+    </noscript>
+</head>
+
+<body>
+    <!-- Header Section with Nav Bar -->
+    <section id="menu" class="menu">
+        <nav>
+            <div class="logo">
+                <a href="index.html">
+                    <img src="white-logo-02.png" alt="Logo">
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html#menu">Home</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="service.html">Services</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+        </nav>
+        <script>
+            // Toggle the mobile menu
+            const hamburger = document.querySelector('.hamburger');
+            const navLinks = document.querySelector('.nav-links');
+            const navLinksItems = document.querySelectorAll('.nav-links li');
+
+            // Toggle the mobile menu when the hamburger icon is clicked
+            hamburger.addEventListener('click', () => {
+                if (navLinks.classList.contains('active')) {
+                    // Menu is closing
+                    navLinks.classList.add('closing');
+
+                    // Delay removal of 'active' class to allow animation to complete
+                    setTimeout(() => {
+                        navLinks.classList.remove('active', 'closing');
+                        hamburger.classList.remove('toggle'); // Reset hamburger to default (three lines)
+                    }, 0); // Matches the CSS transition duration
+                } else {
+                    // Menu is opening
+                    navLinks.classList.add('active');
+                    hamburger.classList.add('toggle'); // Change hamburger to 'X'
+                }
+            });
+
+            // Close the mobile menu after a link is clicked
+            navLinksItems.forEach(link => {
+                link.addEventListener('click', () => {
+                    // Menu is closing
+                    navLinks.classList.add('closing');
+
+                    // Delay the removal of 'active' class to allow the animation to finish
+                    setTimeout(() => {
+                        navLinks.classList.remove('active', 'closing');
+                        hamburger.classList.remove('toggle');  // Reset hamburger icon to default (three lines)
+                    }, 0);  // Matches the CSS transition timing
+                });
+            });
+        </script>
+    </section>
+
+    <section id="services-page">
+        <div class="container services">
+            <h1>Our Services</h1>
+    
+            <div class="service-item" id="inventory-management">
+                <div class="service-icon">
+                    <i class="fas fa-boxes"></i>
+                </div>
+                <div class="service-content">
+                    <h2>Inventory Management Solutions</h2>
+                    <p>Optimize your inventory with our QR code-based tracking solutions. Our services include integration with Google Sheets, allowing seamless inventory updates to prevent shortages and ensure accurate stock levels.</p>
+                </div>
+            </div>
+    
+            <div class="service-item" id="workflow-automation">
+                <div class="service-icon">
+                    <i class="fas fa-tasks"></i>
+                </div>
+                <div class="service-content">
+                    <h2>Workflow Automation</h2>
+                    <p>Save time and reduce manual work with our custom workflow automations. We design and implement automated processes that improve efficiency and eliminate repetitive tasks, allowing your team to focus on what really matters.</p>
+                </div>
+            </div>
+    
+            <div class="service-item" id="custom-automation">
+                <div class="service-icon">
+                    <i class="fas fa-cogs"></i>
+                </div>
+                <div class="service-content">
+                    <h2>Custom Automation Development</h2>
+                    <p>We understand every business has unique needs. That's why we offer tailor-made automation solutions. From integrating with third-party services to building custom bots, our goal is to streamline your business operations to your specifications.</p>
+                </div>
+            </div>
+    
+            <div class="service-item" id="custom-website-design">
+                <div class="service-icon">
+                    <i class="fas fa-laptop-code"></i>
+                </div>
+                <div class="service-content">
+                    <h2>Custom Website Design</h2>
+                    <p>Make a lasting impression with a professional, responsive, and fully customized website. Our design services ensure your business stands out, with a focus on user experience, aesthetics, and seamless functionality. We bring your vision to life with the latest design trends and technologies.</p>
+                </div>
+            </div>
+    
+            <div class="service-item" id="make-com-scenarios">
+                <div class="service-icon">
+                    <i class="fas fa-project-diagram"></i>
+                </div>
+                <div class="service-content">
+                    <h2>Make.com Scenarios</h2>
+                    <p>Automate your workflows with Make.com scenarios tailored to your business needs. We create custom integrations and automation solutions that connect your favorite tools and services, streamline your processes, and help you save time and reduce manual tasks.</p>
+                </div>
+            </div>
+    
+            <div class="service-item" id="api-integration">
+                <div class="service-icon">
+                    <i class="fas fa-plug"></i>
+                </div>
+                <div class="service-content">
+                    <h2>API Integration Services</h2>
+                    <p>Seamlessly connect your business tools and software with our API integration services. We create custom integrations to automate data exchange and improve efficiency, ensuring all your systems work together effortlessly.</p>
+                </div>
+            </div>
+    
+        </div>
+    </section>
+    
+    
+
+    <section class="cta">
+        <div class="container">
+            <h2>Ready to Streamline Your Business?</h2>
+            <p>Let us help you achieve efficiency through smart automation. Reach out to discuss how we can assist your specific business needs.</p>
+            <a href="contact.html" class="cta-button serviced">Get in Touch</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="my-social-icon">
+            <div class="social-links">
+                <a href="https://www.instagram.com/opt8automations/"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.tiktok.com/@opt8automations"><i class="fab fa-tiktok"></i></a>
+                <a href="mailto:opt8automations@gmail.com"><i class="fas fa-envelope"></i></a>
+            </div>
+        </div>
+        <br>
+        <p>&copy; 2024 Opt8 Automations</p>
+    </footer>
+
+    <script>
+        // GSAP animations for a dynamic experience
+        document.addEventListener("DOMContentLoaded", () => {
+            gsap.from(".service-item", {
+                opacity: 0,
+                y: 50,
+                duration: 1,
+                stagger: 0.3,
+                scrollTrigger: {
+                    trigger: ".services",
+                    start: "top 80%"
+                }
+            });
+        });
+    </script>
+</body>
+</html>
