@@ -422,8 +422,7 @@ section.scroll p {
     padding: 30px 30px;
     text-align: center;
     color: #333;
-    position: relative;
-    z-index: 1;
+
 
 }
 
@@ -445,13 +444,7 @@ section.scroll p {
     padding: 0 0px;
 }
 
-#about::after {
-    content: '';
-    display: block;
-    width: 100px;
-    height: 10px;
-    padding-bottom: 30px;
-}
+
 
 #about:hover {
 
@@ -483,7 +476,7 @@ section.scroll p {
     padding: 30px 30px;
     text-align: center;
     color: #333;
-    position: relative;
+
 }
 
 #services h2 {
@@ -505,13 +498,7 @@ section.scroll p {
     padding-bottom: 20px;
 }
 
-#services::after {
-    content: '';
-    display: block;
-    width: 100px;
-    height: 10px;
-    padding-bottom: 30px;
-}
+
 
 
 
@@ -563,14 +550,6 @@ section.scroll p {
     margin: 0 auto;
     padding: 0 0px;
     padding-bottom: 20px;
-}
-
-#contact::after {
-    content: '';
-    display: block;
-    width: 100px;
-    height: 10px;
-    padding-bottom: 30px;
 }
 
 
